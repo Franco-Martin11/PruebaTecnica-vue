@@ -1,8 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup>
 import FigureCard from "./components/FigureCard.vue";
-import StatsCard from "./components/StatsCard.vue";
-import HeadingCard from "./components/HeadingCard.vue";
+import DescriptionContainer from './components/DescriptionContainer.vue'
 const props = defineProps({
   data: Object,
 });
@@ -10,22 +9,18 @@ const props = defineProps({
 
 <template>
   <section class="container">
-    <FigureCard
-      :imgUrl="props.data?.sprites.other.dream_world.front_default"
-      :imgAlt="props.data?.name"
-      :imgCaption="props.data?.name"
-      :expBase="props.data?.base_experience"
-    ></FigureCard>
-    <StatsCard :stats="props.data?.stats"></StatsCard>
-    <HeadingCard :heading="props.data?.abilities"></HeadingCard>
+    <DescriptionContainer :pokemon="{
+      name: props.data?.name,
+      expBase: props.data?.base_experience,
+    }" :stats="{ stats: props.data?.stats, abilities: props.data?.abilities }"></DescriptionContainer>
+    <FigureCard :imgUrl="props.data?.sprites.other.dream_world.front_default" :imgAlt="props.data?.name"
+      :type="props.data?.types"></FigureCard>
   </section>
 </template>
 
 <style scoped>
 .container {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display:flex;
   gap: 0px 10px;
   width: 100%;
   max-width: 725px;
@@ -34,8 +29,13 @@ const props = defineProps({
   background: #fafafa;
   border-radius: 25px;
   padding: 1rem;
-  grid-template-areas:
-    "image stats stats"
-    "image habilities habilities";
+}
+
+@media screen and (max-width:550px) {
+  .container{
+    flex-wrap: wrap-reverse;
+  justify-content: center;
+  padding:.5rem;
+  }
 }
 </style>

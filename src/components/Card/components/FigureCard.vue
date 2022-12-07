@@ -1,10 +1,10 @@
 <template>
   <figure class="">
-    <img :src="imgUrl" :alt="imgAlt" />
-    <figcaption>
-      <h1 class="name">{{ imgCaption }}</h1>
+    <img loading='lazy' :src="imgUrl" :alt="imgAlt" />
+    <figcaption class="type__container">
+      <span class="type__heading">Type:</span>
+      <span class="type__item" v-for="typePokemon of type" :key="typePokemon.slot">{{ typePokemon.type.name }}</span>
     </figcaption>
-    <h5 class="subtitle">Base Expercience : {{ expBase }}★</h5>
   </figure>
 </template>
 
@@ -12,9 +12,8 @@
 export default {
   props: {
     imgUrl: String,
-    imgCaption: String,
     imgAlt: String,
-    expBase: Number,
+    type: Array,
   },
 };
 </script>
@@ -22,6 +21,17 @@ export default {
 <style scoped>
 figure {
   grid-area: image;
+}
+
+.type__container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  text-transform: capitalize;
+}
+
+.type__heading {
+  font-weight: 500;
 }
 
 img {

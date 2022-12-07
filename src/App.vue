@@ -36,11 +36,20 @@ export default {
 <template>
   <main class="main__container">
     <CardContainer :data="response"></CardContainer>
-    <ButtonPagination :methods="{ increse, decrese, counter }"></ButtonPagination>
+    <ButtonPagination
+      :methods="{ increse, decrese, counter }"
+    ></ButtonPagination>
   </main>
 </template>
 
-<style scoped>
+<style >
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
 .main__container {
   display: grid;
   place-content: center;

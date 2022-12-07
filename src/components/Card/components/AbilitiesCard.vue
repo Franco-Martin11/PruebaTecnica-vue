@@ -3,8 +3,7 @@
     <h3 class="article__heading">Abilities:</h3>
     <div class="stats__container">
       <div v-for="(items, index) in heading" :key="index">
-        <h2>{{ items.ability.name }}</h2>
-        <h2><span class="ability__slot">Exp:</span> {{ items.slot }}★</h2>
+        <h2>{{ items.ability.name }} : {{ items.slot }}★</h2>
       </div>
     </div>
   </article>
