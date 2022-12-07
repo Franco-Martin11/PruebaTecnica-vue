@@ -1,7 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup>
 import FigureCard from "./components/FigureCard.vue";
-import DescriptionContainer from './components/DescriptionContainer.vue'
+import DescriptionContainer from "./components/DescriptionContainer.vue";
 const props = defineProps({
   data: Object,
 });
@@ -9,18 +9,24 @@ const props = defineProps({
 
 <template>
   <section class="container">
-    <DescriptionContainer :pokemon="{
-      name: props.data?.name,
-      expBase: props.data?.base_experience,
-    }" :stats="{ stats: props.data?.stats, abilities: props.data?.abilities }"></DescriptionContainer>
-    <FigureCard :imgUrl="props.data?.sprites.other.dream_world.front_default" :imgAlt="props.data?.name"
-      :type="props.data?.types"></FigureCard>
+    <DescriptionContainer
+      :pokemon="{
+        name: props.data?.name,
+        expBase: props.data?.base_experience,
+      }"
+      :stats="{ stats: props.data?.stats, abilities: props.data?.abilities }"
+    ></DescriptionContainer>
+    <FigureCard
+      :imgUrl="props.data?.sprites.other.dream_world.front_default"
+      :imgAlt="props.data?.name"
+      :type="props.data?.types"
+    ></FigureCard>
   </section>
 </template>
 
 <style scoped>
 .container {
-  display:flex;
+  display: flex;
   gap: 0px 10px;
   width: 100%;
   max-width: 725px;
@@ -31,11 +37,11 @@ const props = defineProps({
   padding: 1rem;
 }
 
-@media screen and (max-width:550px) {
-  .container{
+@media screen and (max-width: 550px) {
+  .container {
     flex-wrap: wrap-reverse;
-  justify-content: center;
-  padding:.5rem;
+    justify-content: center;
+    padding: 0.5rem;
   }
 }
 </style>

@@ -1,9 +1,14 @@
 <template>
   <figure class="">
-    <img loading='lazy' :src="imgUrl" :alt="imgAlt" />
+    <img loading="lazy" :src="imgUrl" :alt="imgAlt" />
     <figcaption class="type__container">
       <span class="type__heading">Type:</span>
-      <span class="type__item" v-for="typePokemon of type" :key="typePokemon.slot">{{ typePokemon.type.name }}</span>
+      <span
+        class="type__item"
+        v-for="typePokemon of type"
+        :key="typePokemon.slot"
+        >{{ typePokemon.type.name }}</span
+      >
     </figcaption>
   </figure>
 </template>

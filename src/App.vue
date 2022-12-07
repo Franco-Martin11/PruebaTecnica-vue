@@ -42,8 +42,8 @@ export default {
   </main>
 </template>
 
-<style >
-*{
+<style>
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -57,5 +57,6 @@ export default {
   min-height: 100vh;
   gap: 1rem;
   background: rgba(0, 0, 0, 0.074);
+  padding: 1rem 0.25rem;
 }
 </style>
