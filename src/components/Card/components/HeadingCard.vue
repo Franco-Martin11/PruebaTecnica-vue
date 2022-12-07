@@ -1,17 +1,61 @@
 <template>
-  <div class="headingContainer">
-    <h2>{{}}</h2>
-  </div>
+  <article class="article__container">
+    <h3 class="article__heading">Abilities:</h3>
+    <div class="stats__container">
+      <div v-for="(items, index) in heading" :key="index">
+        <h2>{{ items.ability.name }}</h2>
+        <h2><span class="ability__slot">Exp:</span> {{ items.slot }}★</h2>
+      </div>
+    </div>
+  </article>
 </template>
 
 <script>
-props: {
-        imgUrl: String
-        imgCaption: String
-        imgAlt: String
-    }
+export default {
+  props: {
+    heading: Array,
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.article__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  grid-area: habilities;
+}
 
+.article__heading {
+  text-align: start;
+  width: 100%;
+}
+
+.stats__container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stats__container > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  text-transform: capitalize;
+}
+
+.stats__container > div > h2 {
+  font-size: 18px;
+}
+
+.ability__slot {
+  font-size: 16px;
+  font-weight: 300;
+}
 </style>
